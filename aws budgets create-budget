@@ -1,0 +1,24 @@
+#run the following on the aws CLI to create a budget
+
+aws budgets create-budget \
+    --account-id $AWS_ACCOUNT_ID \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
+
+#creating a sns topic
+
+
+#run:
+aws sns create-topic --name billing-alarm
+
+which will return a TopicARN
+We'll create a subscription supply the TopicARN and our Email
+
+aws sns subscribe \
+    --topic-arn TopicARN \
+    --protocol email \
+    --notification-endpoint your@email.com
+
+#Creatin a aws Cloudwatch alarm
+
+aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json

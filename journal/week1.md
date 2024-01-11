@@ -34,7 +34,8 @@ EXPOSE ${PORT}
 # CMD (Command)
 # python3 -m flask run --host=0.0.0.0 --port=4567
 # -m flask: run the flask module
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]```
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
+```
 
 
 ### To start the server it is necessary to export the ENV variables:
